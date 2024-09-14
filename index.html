@@ -7,68 +7,28 @@
     <title>Service d'images</title>
 
     <style>
-        /* Style de base */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            line-height: 1.5;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.8em;
-        }
-
         #erreur {
             color: red;
         }
 
         form {
             margin: 20px;
-            font-size: 1.1em; /* Augmente la taille de la police pour plus de lisibilité */
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input[type="text"], input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            font-size: 1em;
-            margin-top: 10px;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
         }
 
         main {
             display: grid;
-            grid-template-columns: 1fr; /* Une seule colonne par défaut pour mobile */
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: 289px auto;
         }
 
         main section {
+            margin: 20px;
             padding: 10px;
             border: 1px solid grey;
         }
 
         #resultats img {
             display: block;
-            width: 100%; /* Ajuste l'image à la largeur du conteneur */
+            float: left;
         }
 
         figure {
@@ -76,8 +36,8 @@
         }
 
         #carte {
-            height: 300px;
-            margin: 20px 0;
+            height: 500px;
+            margin: 20px;
             padding: 10px;
             border: 1px solid grey;
         }
@@ -96,36 +56,6 @@
             font-size: 14px;
             color: #333;
         }
-
-        /* Responsiveness pour écrans de tablette et au-dessus */
-        @media(min-width: 768px) {
-            main {
-                grid-template-columns: 1fr 1fr; /* Deux colonnes pour tablettes et plus grands */
-            }
-
-            #carte {
-                height: 400px;
-            }
-
-            h1 {
-                font-size: 2.2em;
-            }
-        }
-
-        /* Responsiveness pour écrans plus grands (ordinateurs de bureau) */
-        @media(min-width: 1024px) {
-            main {
-                grid-template-columns: 300px 1fr; /* 300px pour la colonne de gauche et le reste pour le contenu */
-            }
-
-            #carte {
-                height: 500px;
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-        }
     </style>
 
     <!-- Leaflet CSS -->
@@ -141,7 +71,7 @@
     <section>
         <form id="recherche">
             <fieldset>
-                <legend>Chercher par mots-clés</legend>
+                <legend>Chercher par mots-clés </legend>
                 <p>Séparer les mots-clés par une virgule</p>
                 <label>Mots-clés <input type="text" name="mots" id="mots"></label>
                 <input type="submit" value="Rechercher par mots clés Flickr">
