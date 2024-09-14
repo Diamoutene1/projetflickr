@@ -7,6 +7,19 @@
     <title>Service d'images</title>
 
     <style>
+        /* Style de base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
         #erreur {
             color: red;
         }
@@ -17,18 +30,19 @@
 
         main {
             display: grid;
-            grid-template-columns: 289px auto;
+            grid-template-columns: 1fr; /* Une seule colonne par défaut pour mobile */
+            gap: 20px;
+            padding: 20px;
         }
 
         main section {
-            margin: 20px;
             padding: 10px;
             border: 1px solid grey;
         }
 
         #resultats img {
             display: block;
-            float: left;
+            width: 100%; /* Ajuste l'image à la largeur du conteneur */
         }
 
         figure {
@@ -36,8 +50,8 @@
         }
 
         #carte {
-            height: 500px;
-            margin: 20px;
+            height: 300px;
+            margin: 20px 0;
             padding: 10px;
             border: 1px solid grey;
         }
@@ -56,6 +70,28 @@
             font-size: 14px;
             color: #333;
         }
+
+        /* Responsiveness pour écrans de tablette et au-dessus */
+        @media(min-width: 768px) {
+            main {
+                grid-template-columns: 1fr 1fr; /* Deux colonnes pour tablettes et plus grands */
+            }
+
+            #carte {
+                height: 400px;
+            }
+        }
+
+        /* Responsiveness pour écrans plus grands (ordinateurs de bureau) */
+        @media(min-width: 1024px) {
+            main {
+                grid-template-columns: 300px 1fr; /* 300px pour la colonne de gauche et le reste pour le contenu */
+            }
+
+            #carte {
+                height: 500px;
+            }
+        }
     </style>
 
     <!-- Leaflet CSS -->
@@ -71,7 +107,7 @@
     <section>
         <form id="recherche">
             <fieldset>
-                <legend>Chercher par mots-clés </legend>
+                <legend>Chercher par mots-clés</legend>
                 <p>Séparer les mots-clés par une virgule</p>
                 <label>Mots-clés <input type="text" name="mots" id="mots"></label>
                 <input type="submit" value="Rechercher par mots clés Flickr">
